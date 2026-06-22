@@ -1,0 +1,226 @@
+/* =============================================
+   CHECKLIST DE CASAMENTO – Studio Beatriz Valente
+   Paleta inspirada em "Amendoeira em Flor" – Van Gogh
+   Turquesa  #3A8C8C | Turquesa escuro #2C6B6B
+   Marrom    #6B4226 | Creme  #F5F0E8
+   Verde musgo #5C7A4A
+   Body permanece branco; detalhes usam a paleta da obra
+   ============================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ffffff;
+  color: #2B2B2B;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── TOPO ── */
+.topo {
+  text-align: center;
+  padding: 18px 24px 10px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #3A8C8C;
+}
+
+.studio-nome {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #2C6B6B;
+  text-transform: uppercase;
+}
+
+.studio-nome strong {
+  font-weight: 700;
+  color: #3A8C8C;
+}
+
+/* ── CONTAINER ── */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 28px 60px;
+  background-color: #ffffff;
+}
+
+/* ── TÍTULO – turquesa profundo como o céu da obra ── */
+.titulo-box {
+  background-color: #3A8C8C;
+  border-radius: 18px;
+  padding: 40px 48px;
+  margin-bottom: 36px;
+  text-align: center;
+  /* sutil textura de pincelada via sombra em camadas */
+  box-shadow:
+    0 4px 0px #2C6B6B,
+    0 6px 18px rgba(44, 107, 107, 0.25);
+}
+
+.titulo-box h1 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(28px, 5vw, 42px);
+  color: #F5F0E8;
+  line-height: 1.3;
+  /* leve sombra que remete às pinceladas de Van Gogh */
+  text-shadow: 1px 2px 6px rgba(30, 70, 70, 0.35);
+}
+
+/* ── BARRA DE PROGRESSO ── */
+.progresso-wrap {
+  margin-bottom: 36px;
+}
+
+.progresso-barra {
+  width: 100%;
+  height: 8px;
+  background-color: #e0f0f0;
+  border-radius: 99px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  border: 1px solid #b0d8d8;
+}
+
+.progresso-fill {
+  height: 100%;
+  /* gradiente que lembra o degradê do céu para os galhos */
+  background: linear-gradient(to right, #3A8C8C, #5C7A4A);
+  border-radius: 99px;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.progresso-texto {
+  font-size: 12px;
+  color: #2C6B6B;
+  letter-spacing: 0.05em;
+  text-align: right;
+  font-weight: 600;
+}
+
+/* ── GRID DE COLUNAS ── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
+}
+
+@media (max-width: 620px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── SEÇÕES ── */
+.secao {
+  margin-bottom: 32px;
+}
+
+/* Heading das seções: cor do tronco/galho com borda turquesa */
+.secao h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: #6B4226;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #3A8C8C;
+}
+
+/* ── LISTA ── */
+.secao ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.secao li label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.secao li label:hover {
+  opacity: 0.75;
+}
+
+/* ── CHECKBOX – turquesa como o céu da obra ── */
+.secao li input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  border: 1.8px solid #3A8C8C;
+  border-radius: 4px;
+  margin-top: 2px;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.secao li input[type="checkbox"]:checked {
+  background-color: #3A8C8C;
+  border-color: #2C6B6B;
+}
+
+.secao li input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #F5F0E8;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+/* ── TEXTO RISCADO quando marcado ── */
+.secao li input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+  color: #9abfbf;
+  transition: color 0.3s;
+}
+
+.secao li span {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #2B2B2B;
+  transition: color 0.3s;
+}
+
+/* ── RODAPÉ – mesma turquesa escura dos galhos em sombra ── */
+.rodape {
+  background-color: #2C6B6B;
+  border-radius: 12px;
+  padding: 20px 32px;
+  margin-top: 8px;
+  text-align: center;
+  box-shadow: 0 3px 0 #3A8C8C;
+}
+
+.rodape p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #F5F0E8;
+  line-height: 1.6;
+}
